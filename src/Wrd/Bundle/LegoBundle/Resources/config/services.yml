@@ -1,0 +1,7 @@
+parameters:
+#    wrd_lego.example.class: Wrd\Bundle\LegoBundle\Example
+
+services:
+#    wrd_lego.example:
+#        class: %wrd_lego.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

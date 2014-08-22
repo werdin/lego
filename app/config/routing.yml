@@ -1,0 +1,4 @@
+wrd_lego:
+    resource: "@WrdLegoBundle/Resources/config/routing.yml"
+    prefix:   /
+
