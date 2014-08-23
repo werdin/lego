@@ -72,5 +72,9 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Wrd\Bundle\LegoBundle\Entity\User
-    group:
-        group_class: Wrd\Bundle\LegoBundle\Entity\UserGroup
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
