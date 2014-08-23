@@ -1,0 +1,11 @@
+services:
+    sonata.admin.category:
+        class: Wrd\Bundle\LegoBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Lego", label: "Category" }
+        arguments:
+            - ~
+            - Wrd\Bundle\LegoBundle\Entity\Category
+            - ~
+        calls:
+            - [ setTranslationDomain, [WrdLegoBundle]]
