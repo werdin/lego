@@ -2,14 +2,13 @@
 
 namespace Wrd\Bundle\LegoBundle\Entity;
 
-use Application\Sonata\MediaBundle\Entity\Media;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="product_media")
+ * @ORM\Table(name="product_attributes")
  */
-class ProductMedia {
+class ProductAttributes {
     /**
      * @var integer $id
      *
@@ -22,16 +21,16 @@ class ProductMedia {
     /**
      * @var Product $product
      *
-     * @ORM\ManyToOne(targetEntity="Product",  inversedBy="media")
+     * @ORM\ManyToOne(targetEntity="Product", inversedBy="attributes")
      */
     protected  $product;
 
     /**
-     * @var Media $media
+     * @var Attributes $attributes
      *
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media")
+     * @ORM\ManyToOne(targetEntity="Attributes")
      */
-    protected  $media;
+    protected  $attributes;
 
     /**
      * @return Product
@@ -50,18 +49,18 @@ class ProductMedia {
     }
 
     /**
-     * @return \Application\Sonata\MediaBundle\Entity\Media
+     * @return Attributes
      */
-    public function getMedia()
+    public function getAttributes()
     {
-        return $this->media;
+        return $this->attributes;
     }
 
     /**
-     * @param \Application\Sonata\MediaBundle\Entity\Media $media
+     * @param Attributes $attributes
      */
-    public function setMedia($media)
+    public function setAttributes($attributes)
     {
-        $this->media = $media;
+        $this->attributes = $attributes;
     }
 } 

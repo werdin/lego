@@ -21,13 +21,36 @@ services:
             calls:
                 - [ setTranslationDomain, [WrdLegoBundle]]
 
+    sonata.admin.attributes:
+            class: Wrd\Bundle\LegoBundle\Admin\AttributesAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Lego", label: "Attributes" }
+            arguments:
+                - ~
+                - Wrd\Bundle\LegoBundle\Entity\Attributes
+                - ~
+            calls:
+                - [ setTranslationDomain, [WrdLegoBundle]]
+
     sonata.admin.product_media:
                 class: Wrd\Bundle\LegoBundle\Admin\ProductMediaAdmin
                 tags:
-                    - { name: sonata.admin, manager_type: orm, group: "Lego", label: "Product Media" }
+                    - { name: sonata.admin, manager_type: orm, group: "Lego", show_in_dashboard: false, label: "Product Media" }
                 arguments:
                     - ~
                     - Wrd\Bundle\LegoBundle\Entity\ProductMedia
                     - ~
                 calls:
                     - [ setTranslationDomain, [WrdLegoBundle]]
+
+    sonata.admin.product_attributes:
+                    class: Wrd\Bundle\LegoBundle\Admin\ProductAttributesAdmin
+                    tags:
+                        - { name: sonata.admin, manager_type: orm, show_in_dashboard: false, group: "Lego", label: "Product Attributes" }
+                    arguments:
+                        - ~
+                        - Wrd\Bundle\LegoBundle\Entity\ProductAttributes
+                        - ~
+                    calls:
+                        - [ setTranslationDomain, [WrdLegoBundle]]
+

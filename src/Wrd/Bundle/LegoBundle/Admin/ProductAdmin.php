@@ -6,7 +6,7 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Wrd\Bundle\LegoBundle\Entity\Product;
+use Wrd\Bundle\LegoBundle\Entity\ProductAttributes;
 use Wrd\Bundle\LegoBundle\Entity\ProductMedia;
 
 /**
@@ -15,7 +15,6 @@ use Wrd\Bundle\LegoBundle\Entity\ProductMedia;
  */
 class ProductAdmin extends Admin
 {
-
     /**
      * Fields to be shown on create/edit forms
      *
@@ -35,7 +34,14 @@ class ProductAdmin extends Admin
                 'edit' => 'inline',
                 'inline' => 'table'
             ))
-        ;
+            ->add('attributes', 'sonata_type_collection', array(
+                'required' => false,
+                'by_reference' => false,
+            ), array(
+                'edit' => 'inline',
+                'inline' => 'table',
+                'sortable' => 'position'
+            ));
     }
 
     /**
@@ -69,8 +75,7 @@ class ProductAdmin extends Admin
                     'edit' => array(),
                     'delete' => array(),
                 )
-            ))
-        ;
+            ));
     }
 
     /**
@@ -82,6 +87,11 @@ class ProductAdmin extends Admin
         foreach ($object->getMedia() as $image) {
             $image->setProduct($object);
         }
+
+        /** @var $attribute ProductAttributes */
+        foreach ($object->getAttributes() as $attribute) {
+            $attribute->setProduct($object);
+        }
     }
 
     /**
@@ -92,6 +102,11 @@ class ProductAdmin extends Admin
         /** @var $image ProductMedia */
         foreach ($object->getMedia() as $image) {
             $image->setProduct($object);
+        }
+
+        /** @var $attribute ProductAttributes */
+        foreach ($object->getAttributes() as $attribute) {
+            $attribute->setProduct($object);
         }
     }
 } 

@@ -55,6 +55,13 @@ class Product
      */
     protected $media;
 
+    /**
+     * @var  Attributes $attributes
+     *
+     * @ORM\OneToMany(targetEntity="ProductAttributes", mappedBy="product", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    protected $attributes;
+
     public function __construct()
     {
         $this->media = new ArrayCollection();
@@ -149,13 +156,13 @@ class Product
     }
 
     /**
-     * @param ProductMedia $images
+     * @param ProductMedia $productMedia
      * @return $this
      */
-    public function addMedia(ProductMedia $images)
+    public function addMedia(ProductMedia $productMedia)
     {
-        $images->setProduct($this);
-        $this->media[] = $images;
+        $productMedia->setProduct($this);
+        $this->media[] = $productMedia;
 
         return $this;
     }
@@ -174,6 +181,30 @@ class Product
     public function __toString()
     {
         return $this->getTitle();
+    }
+
+    /**
+     * @return \Wrd\Bundle\LegoBundle\Entity\Attributes
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @param \Wrd\Bundle\LegoBundle\Entity\Attributes $attributes
+     */
+    public function setAttributes($attributes)
+    {
+        $this->attributes = $attributes;
+    }
+
+    public function addAttributes(ProductAttributes $productAttributes)
+    {
+        $productAttributes->setProduct($this);
+        $this->attributes[] = $productAttributes;
+
+        return $this;
     }
 
 
