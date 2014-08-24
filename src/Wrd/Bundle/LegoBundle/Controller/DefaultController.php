@@ -9,7 +9,10 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $c = new CategoryAdmin('','','');
-        return $this->render('WrdLegoBundle:Default:index.html.twig');
+        $categories = $this->getDoctrine()
+            ->getRepository('WrdLegoBundle:Category')
+            ->findAll();
+
+        return $this->render('WrdLegoBundle:Default:index.html.twig', array('categories' => $categories));
     }
 }

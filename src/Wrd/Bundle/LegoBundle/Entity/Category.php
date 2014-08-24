@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="category")
  */
-class Category {
+class Category
+{
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -53,5 +54,10 @@ class Category {
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 } 

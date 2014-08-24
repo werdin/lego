@@ -9,3 +9,14 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [WrdLegoBundle]]
+
+    sonata.admin.product:
+            class: Wrd\Bundle\LegoBundle\Admin\ProductAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Lego", label: "Product" }
+            arguments:
+                - ~
+                - Wrd\Bundle\LegoBundle\Entity\Product
+                - ~
+            calls:
+                - [ setTranslationDomain, [WrdLegoBundle]]
