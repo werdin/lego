@@ -44,6 +44,13 @@ class CategoryAdmin extends  Admin {
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('name');
+            ->add('name')
+            ->add('_action', 'actions', array(
+                'actions' => array(
+                    'edit' => array(),
+                    'delete' => array(),
+                )
+            ))
+        ;
     }
 } 

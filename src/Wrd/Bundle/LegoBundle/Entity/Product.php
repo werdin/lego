@@ -2,6 +2,7 @@
 
 namespace Wrd\Bundle\LegoBundle\Entity;
 
+use Application\Sonata\MediaBundle\Entity\Media;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,7 +29,7 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $description;
 
@@ -46,6 +47,18 @@ class Product
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     protected $category;
+
+    /**
+     * @var  Media $image
+     *
+     * @ORM\OneToMany(targetEntity="ProductMedia", mappedBy="product", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    protected $media;
+
+    public function __construct()
+    {
+        $this->media = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -126,4 +139,42 @@ class Product
     {
         $this->category = $category;
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getMedia()
+    {
+        return $this->media;
+    }
+
+    /**
+     * @param ProductMedia $images
+     * @return $this
+     */
+    public function addMedia(ProductMedia $images)
+    {
+        $images->setProduct($this);
+        $this->media[] = $images;
+
+        return $this;
+    }
+
+    /**
+     * @param $media
+     */
+    public function setMedia($media)
+    {
+        $this->media = $media;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+
+
 }

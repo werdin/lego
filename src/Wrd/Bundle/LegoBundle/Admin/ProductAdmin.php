@@ -6,6 +6,8 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Wrd\Bundle\LegoBundle\Entity\Product;
+use Wrd\Bundle\LegoBundle\Entity\ProductMedia;
 
 /**
  * Class CategoryAdmin
@@ -23,10 +25,16 @@ class ProductAdmin extends Admin
     {
         $formMapper
             ->add('title')
-            ->add('description', 'textarea')
-            ->add('cost', 'number', array('precision' => 2))
-            ->add('image', 'file', array('required' => false))
             ->add('category')
+            ->add('description', 'textarea', array('required' => false))
+            ->add('cost', 'number', array('precision' => 2))
+            ->add('media', 'sonata_type_collection', array(
+                'required' => false,
+                'by_reference' => false,
+            ), array(
+                'edit' => 'inline',
+                'inline' => 'table'
+            ))
         ;
     }
 
@@ -55,6 +63,35 @@ class ProductAdmin extends Admin
             ->addIdentifier('id')
             ->add('title')
             ->add('description')
-            ->add('cost');
+            ->add('cost')
+            ->add('_action', 'actions', array(
+                'actions' => array(
+                    'edit' => array(),
+                    'delete' => array(),
+                )
+            ))
+        ;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function prePersist($object)
+    {
+        /** @var $image ProductMedia */
+        foreach ($object->getMedia() as $image) {
+            $image->setProduct($object);
+        }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function preUpdate($object)
+    {
+        /** @var $image ProductMedia */
+        foreach ($object->getMedia() as $image) {
+            $image->setProduct($object);
+        }
     }
 } 

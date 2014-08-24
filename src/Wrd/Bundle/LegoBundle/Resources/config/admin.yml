@@ -20,3 +20,14 @@ services:
                 - ~
             calls:
                 - [ setTranslationDomain, [WrdLegoBundle]]
+
+    sonata.admin.product_media:
+                class: Wrd\Bundle\LegoBundle\Admin\ProductMediaAdmin
+                tags:
+                    - { name: sonata.admin, manager_type: orm, group: "Lego", label: "Product Media" }
+                arguments:
+                    - ~
+                    - Wrd\Bundle\LegoBundle\Entity\ProductMedia
+                    - ~
+                calls:
+                    - [ setTranslationDomain, [WrdLegoBundle]]
