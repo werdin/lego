@@ -20,7 +20,7 @@ class DefaultController extends Controller
         $pagination = $paginator->paginate(
             $query,
             $this->get('request')->query->get('page', 1),
-            9
+            4
         );
 
         $categories = $this->getDoctrine()->getRepository('WrdLegoBundle:Category')->findAll();
@@ -59,7 +59,7 @@ class DefaultController extends Controller
         $pagination = $paginator->paginate(
             $query,
             $this->get('request')->query->get('page', 1),
-            9
+            4
         );
 
         $categories = $this->getDoctrine()->getRepository('WrdLegoBundle:Category')->findAll();
