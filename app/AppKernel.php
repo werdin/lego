@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new  JMS\SerializerBundle\JMSSerializerBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Wrd\Bundle\LegoBundle\WrdLegoBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
         );

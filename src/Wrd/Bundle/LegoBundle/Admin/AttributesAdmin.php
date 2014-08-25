@@ -20,7 +20,10 @@ class AttributesAdmin extends  Admin {
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('name', 'text');
+        $formMapper
+            ->add('name', 'text')
+            ->add('value', 'text')
+        ;
     }
 
     /**

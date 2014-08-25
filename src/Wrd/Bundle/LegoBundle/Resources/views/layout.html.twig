@@ -4,7 +4,8 @@
     <link href="{{ asset('bundles/sonataadmin/vendor/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet"/>
 {% endblock %}
 {% block javascripts %}
-    <script src="{{ asset('bundles/wrdlego/js/bootstrap.min.js') }}"></script>
+    <script src="{{  asset('bundles/wrdlego/js/jquery-1.11.0.min.js') }}"></script>
+    <script src="{{ asset('bundles/wrdlego/js/lightbox.js') }}"></script>
 {% endblock %}
 {% block title %}Lego!{% endblock %}
 {% block body %}
@@ -42,5 +43,25 @@
             </div>
         </div>
     </nav>
-    {% block products %}{% endblock products %}
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead">Lego Shop</p>
+                {% if categories is defined %}
+                <div class="list-group">
+                    {% for category in categories %}
+                        <a href="{{ path('wrd_lego_category_product', {'id': category.id}) }} " class="list-group-item">{{ category.name }}</a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-md-9">
+                {% block products %}{% endblock products %}
+            </div>
+
+        </div>
+
+    </div>
 {% endblock body %}

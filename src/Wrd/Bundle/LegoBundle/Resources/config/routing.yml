@@ -1,3 +1,15 @@
 wrd_lego_homepage:
     path:     /
     defaults: { _controller: WrdLegoBundle:Default:index }
+
+wrd_lego_product_details:
+    path:     /product/{id}
+    defaults: { _controller: WrdLegoBundle:Default:productDetails}
+    requirements:
+        page:  \d+
+
+wrd_lego_category_product:
+    path:     /category/{id}
+    defaults: { _controller: WrdLegoBundle:Default:category}
+    requirements:
+        page:  \d+

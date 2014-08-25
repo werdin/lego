@@ -26,7 +26,7 @@ class ProductAdmin extends Admin
             ->add('title')
             ->add('category')
             ->add('description', 'textarea', array('required' => false))
-            ->add('cost', 'number', array('precision' => 2))
+            ->add('price', 'number', array('precision' => 2))
             ->add('media', 'sonata_type_collection', array(
                 'required' => false,
                 'by_reference' => false,
@@ -55,7 +55,7 @@ class ProductAdmin extends Admin
             ->add('id')
             ->add('title')
             ->add('description')
-            ->add('cost');
+            ->add('price');
     }
 
     /**
@@ -69,7 +69,7 @@ class ProductAdmin extends Admin
             ->addIdentifier('id')
             ->add('title')
             ->add('description')
-            ->add('cost')
+            ->add('price')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),

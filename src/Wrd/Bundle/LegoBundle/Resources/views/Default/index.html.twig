@@ -1,1 +1,41 @@
+{% extends 'WrdLegoBundle::layout.html.twig' %}
 
+{% block products %}
+    <div class="col-md-12">
+        <div class="pull-right">
+            {% if pagination.count > 0 %}
+                {{ knp_pagination_sortable(pagination,  'Sort by Price', 'p.price') }}
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        {% for product in pagination %}
+
+            <div class="col-sm-4 col-lg-4 col-md-6">
+                <div class="thumbnail">
+                    {% if product.media.first.media is defined and product.media.first.media is not null %}
+                        <a href="{{ path('wrd_lego_product_details', {'id': product.id}) }}"> <img
+                                    src="{% path product.media.first.media, 'big' %}" alt="{{ product.title }}"> </a>
+                    {% else %}
+                        <a href="{{ path('wrd_lego_product_details', {'id': product.id}) }}"> <img
+                                    src="http://pennineoutdoorleisure.co.uk/i/others/empty-product-large.png"
+                                    alt="{{ product.title }}"> </a>
+                    {% endif %}
+                    <div class="caption">
+                        <h4 class="pull-right">{{ product.price }}</h4>
+                        <h4><a href="{{ path('wrd_lego_product_details', {'id': product.id}) }}">{{ product.title }}</a>
+                        </h4>
+
+                        <p>{{ product.description }}</p>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+{% endblock products %}

@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Wrd\Bundle\LegoBundle\Repository\ProductRepository")
  * @ORM\Table(name="product")
  */
 class Product
@@ -38,7 +38,7 @@ class Product
      *
      * @ORM\Column(type="decimal", precision=11, scale=2)
      */
-    protected $cost;
+    protected $price;
 
     /**
      * @var $category Category
@@ -118,17 +118,17 @@ class Product
     /**
      * @return float
      */
-    public function getCost()
+    public function getPrice()
     {
-        return $this->cost;
+        return $this->price;
     }
 
     /**
-     * @param float $cost
+     * @param float $price
      */
-    public function setCost($cost)
+    public function setPrice($price)
     {
-        $this->cost = $cost;
+        $this->price = $price;
     }
 
     /**

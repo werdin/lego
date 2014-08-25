@@ -5,12 +5,9 @@
 </head>
 <body>
 {% block stylesheets %}
-    {% stylesheets 'bundles/wrdlego/css/*' filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}"/>
-    {% endstylesheets %}
-    {% stylesheets 'bundles/sonataadmin/vendor/bootstrap/dist/css/bootstrap.min.css' filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}"/>
-    {% endstylesheets %}
+    <link href="{{ asset('bundles/wrdlego/css/shop-homepage.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('bundles/wrdlego/css/style.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('bundles/sonataadmin/vendor/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet"/>
 {% endblock %}
 
     {% block fos_user_content %}

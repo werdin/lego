@@ -26,6 +26,13 @@ class Attributes
     protected $name;
 
     /**
+     * @var string $value
+     *
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $value;
+
+    /**
      * @return string
      */
     public function getName()
@@ -47,5 +54,21 @@ class Attributes
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
     }
 } 
