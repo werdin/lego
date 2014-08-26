@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Wrd\Bundle\LegoBundle\DataFixtures\ORM;
 
 
@@ -9,7 +8,6 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Wrd\Bundle\LegoBundle\Entity\Category;
 use Wrd\Bundle\LegoBundle\Entity\Product;
 use Wrd\Bundle\LegoBundle\Entity\ProductMedia;
 
