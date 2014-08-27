@@ -35,7 +35,8 @@ class AttributesAdmin extends  Admin {
     {
         $datagridMapper
             ->add('id')
-            ->add('name');
+            ->add('name')
+            ->add('value');
     }
 
     /**
@@ -48,6 +49,7 @@ class AttributesAdmin extends  Admin {
         $listMapper
             ->addIdentifier('id')
             ->add('name')
+            ->add('value')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),

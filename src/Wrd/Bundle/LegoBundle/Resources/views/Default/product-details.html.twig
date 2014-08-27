@@ -11,24 +11,37 @@
             {% if product.media is defined and product.media.count > 0 %}
                 {% for image in product.media %}
                     <div class="col-md-4">
-                        <a href="{% path image.media, 'big' %}"  rel="lightbox" ><img src="{% path image.media, 'big' %}"></a>
+                        <a href="{% path image.media, 'big' %}" rel="lightbox"><img src="{% path image.media, 'big' %}"></a>
                     </div>
                 {% endfor %}
             {% else %}
-            <div class="col-md-4">
-                <a href="{{ path('wrd_lego_product_details', {'id': product.id}) }}"> <img
-                            src="http://pennineoutdoorleisure.co.uk/i/others/empty-product-large.png"
-                            alt="{{ product.title }}"> </a>
+                <div class="col-md-4">
+                    <a href="{{ path('wrd_lego_product_details', {'id': product.id}) }}"> <img
+                                src="http://pennineoutdoorleisure.co.uk/i/others/empty-product-large.png"
+                                alt="{{ product.title }}"> </a>
                 </div>
             {% endif %}
 
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8">
             <div class="caption-full">
                 <h4 class="pull-right">{{ product.price }}</h4>
                 <h4>{{ product.title }}</h4>
                 {{ product.description }}
             </div>
+
+            <table class="table">
+                {% for collection in product.attributes %}
+                    {% if collection.attributes %}
+                        <tr>
+                            <td>{{ collection.attributes.name }}</td>
+                            <td>{{ collection.attributes.value }}</td>
+
+
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
         </div>
 
     </div>

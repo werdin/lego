@@ -142,17 +142,20 @@ Memory card slot for pre-loaded cards
 Digital FM tuner with 40 presets
 Rechargeable battery lasts up to 15 hours
 Built-in clip for easy carrying',
-        7 => 'Type : LED TV Resolution:1366 x 768
-Connectivity : 1 x HDMI & 1 x USB 1 Year Micromax India Warranty Screen
- Size : 32 InchRefresh Rate : 60HzSUPC: SDL700735485',
-        8 => 'Type : LED TV Resolution : 1920x1080 Connectivity : 3 x HDMI & 3 x USB
- 1 Year LG India Warranty Screen Size : 32 Inch Refresh Rate : 50HzSUPC: SDL694726947',
-        9 => 'Type : LED TV Resolution : 1920x1080
-Connectivity : 2 x HDMI & 2 x USB Warranty : 1 Year
- Samsung India Warranty Screen Size : 48 Inch Refresh Rate : 100HzSUPC: SDL234590164',
-        10 => 'Type : LED TV Resolution : 1920x1080
- Connectivity : 4 x HDMI & 2 x USB Warranty : 1
- Year Sony India Warranty Screen Size : 42 Inch Refresh Rate : 200HzSUPC: SDL902806341'
+        7 => 'Immerse yourself in a High Definition viewing experience on the 81cm (32) HD screenof the Micromax 32T42ECHD.
+         Enjoy your favourite blockbusters in rich detail with the Zero Dots LED Panel.
+          Be comfortable in every corner and catch all the details with a viewing angle of 178(H)/178(V). The Micromax 32T42ECHD promises you a Stunning Display with Incredible Sound.',
+        8 => 'This television flaunts the highly efficient IPS Panel that provides life-like color, a wide viewing angle and blur-free clarity.
+ Immerse your senses in the brilliant picture quality that is exclusive to this TV.
+Additionally, these TVs have a stable screen immune to rough usage.',
+        9 => 'Enjoy instant access to the Internet with the Hisense 48H5 48" Class Smart TV.
+        Watch premium content from providers like YouTube, Netflix, Vudu HD Movies and TV, Vimeo and Viewster on your TV.
+         Built-in WiFi and Ethernet let you connect wirelessly or wired to your existing network so you can stream and share your movies, videos, music and pictures from your mobile devices direct to your TV.
+          With Full HD 1080p and LED backlight, you will experience stunning picture quality.
+          Browse the Internet, stay connected to friends and family on Facebook and Twitter, post photos on Picasa, listen to music from Pandora Internet Radio, check the weather and download apps from the Opera App Store all from the comfort of your favorite chair or sofa with the simple-to-use smart remote control.',
+        10 => 'Experience stunning picture quality with whatever you\'re watching thanks to Sony’s X-Reality™ PRO image processing engine.
+BRAVIA W700B Series lets you explore Internet contents seamlessly.
+What\'s more, with the new photo share feature, you can share & grab your favourite photos from BRAVIA screen!'
 
     );
 
