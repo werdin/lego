@@ -59,6 +59,7 @@ doctrine:
                     WrdLegoBundle: ~
                     ApplicationSonataMediaBundle: ~
                     FOSUserBundle: ~
+                    LexikCurrencyBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -118,3 +119,10 @@ knp_paginator:
     template:
         pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig
+
+lexik_currency:
+    currencies:
+        default: USD
+        managed: [EUR, USD]
+
+

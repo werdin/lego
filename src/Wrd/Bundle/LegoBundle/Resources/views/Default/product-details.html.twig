@@ -25,7 +25,7 @@
         </div>
         <div class="col-md-8">
             <div class="caption-full">
-                <h4 class="pull-right">{{ product.price }}</h4>
+                <h4 class="pull-right">{{ product.price | currency_convert_format(currency) }}</h4>
                 <h4>{{ product.title }}</h4>
                 {{ product.description }}
             </div>

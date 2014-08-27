@@ -2,28 +2,61 @@
 
 {% block products %}
     <div class="col-md-12">
+    <ul class="nav nav-pills">
         {% if pagination.count > 0 %}
-            {{ knp_pagination_sortable(pagination,  'Sort by Price', 'p.price') }}
+            <li>
+                {{ knp_pagination_sortable(pagination,  'Sort by Price', 'p.price') }}
+            </li>
         {% endif %}
-    </div>
+        <li>
+            {% if available_currencies %}
+                <div class="btn-group">
+                    <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                        Action <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        {% for currency in  available_currencies %}
+                            <li>
+                                {% set params = {'currency': currency} %}
+                                {% if app.request.get('id') %}
+                                    {% set params =  {'id': app.request.get('id')}|merge(params) %}
+                                {% endif %}
+                                <a href="{{ path(app.request.get('_route'), params) }}">{{ currency }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </li>
+    </ul>
     <div class="row">
         {% for product in pagination %}
+            {% set params = {'id': product.id} %}
+            {% if app.request.get('currency') %}
+                {% set params =  {'currency': app.request.get('currency')}|merge(params) %}
+            {% endif %}
             <div class="col-sm-4 col-lg-3 col-md-3">
                 <div class="thumbnail">
                     {% if product.media.first.media is defined and product.media.first.media is not null %}
-                        <a href="{{ path('wrd_lego_product_details', {'id': product.id}) }}"> <img
+                        <a href="{{ path('wrd_lego_product_details', params) }}"> <img
                                     src="{% path product.media.first.media, 'big' %}" alt="{{ product.title }}"
                                     style="min-height:150px;height:200px;"> </a>
                     {% else %}
-                        <a href="{{ path('wrd_lego_product_details', {'id': product.id}) }}"> <img
+                        <a href="{{ path('wrd_lego_product_details', params) }}"> <img
                                     src="http://pennineoutdoorleisure.co.uk/i/others/empty-product-large.png"
                                     alt="{{ product.title }}"> </a>
                     {% endif %}
                     <div class="caption">
-                        <a href="{{ path('wrd_lego_product_details', {'id': product.id}) }}">{{ product.title }}</a>
-                        <h4>{{ product.price }}</h4>
+                        <a href="{{ path('wrd_lego_product_details', params) }}"
+                           class="text-light-blue"><strong>{{ product.title }}</strong></a>
+
+                        <h4>{{ product.price | currency_convert_format(currency) }}</h4>
 
                         <p>{{ product.description }}</p>
+
+                    </div>
+                    <div class="caption-full">
+                        <a href="{{ path('wrd_lego_product_details', params) }}">Read more</a>
                     </div>
                 </div>
             </div>

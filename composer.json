@@ -25,7 +25,8 @@
         "sonata-project/jquery-bundle": "dev-master",
         "sonata-project/media-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "~2.4",
-        "doctrine/doctrine-fixtures-bundle": "2.2.*"
+        "doctrine/doctrine-fixtures-bundle": "2.2.*",
+        "lexik/currency-bundle": "v1.2.3"
 
     },
     "require-dev": {
