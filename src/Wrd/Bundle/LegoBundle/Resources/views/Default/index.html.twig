@@ -19,13 +19,15 @@
                                     src="http://pennineoutdoorleisure.co.uk/i/others/empty-product-large.png"
                                     alt="{{ product.title }}"> </a>
                     {% endif %}
-                    <div class="caption">
+
                         <h4>{{ product.price }}</h4>
                         <h4><a href="{{ path('wrd_lego_product_details', {'id': product.id}) }}">{{ product.title }}</a>
                         </h4>
 
-                        <p>{{ product.description }}</p>
-                    </div>
+                        <div class="caption">
+                            <p>{{ product.description }}</p>
+                        </div>
+
                 </div>
             </div>
 

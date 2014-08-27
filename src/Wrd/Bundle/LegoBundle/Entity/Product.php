@@ -43,7 +43,7 @@ class Product
     /**
      * @var $category Category
      *
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="product")
+     * @ORM\ManyToOne(targetEntity="Category")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     protected $category;
