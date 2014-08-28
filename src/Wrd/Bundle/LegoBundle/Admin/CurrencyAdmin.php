@@ -6,6 +6,7 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
  * Class AttributesAdmin
@@ -21,8 +22,8 @@ class CurrencyAdmin extends  Admin {
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('code')
-            ->add('rate')
+            ->add('code', 'text', array('disabled' => true))
+            ->add('rate', 'number', array('precision' => 4))
         ;
     }
 
@@ -49,6 +50,16 @@ class CurrencyAdmin extends  Admin {
         $listMapper
             ->addIdentifier('id')
             ->add('code')
-            ->add('rate');
+            ->add('rate')
+            ->add('_action', 'actions', array(
+                'actions' => array(
+                    'edit' => array(),
+                )
+            ));
+    }
+
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->clearExcept(array('list', 'edit'));
     }
 } 
